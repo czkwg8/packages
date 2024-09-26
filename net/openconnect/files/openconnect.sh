@@ -129,6 +129,7 @@ proto_openconnect_setup() {
 	[ -n "$serverhash" ] && {
 		append_args "--servercert=$serverhash"
 		append_args --no-system-trust
+		append_args --gnutls-priority="NORMAL:-VERS-ALL:+VERS-TLS1.2:+RSA:+NULL:+SHA1"
 	}
 	[ -n "$authgroup" ] && append_args --authgroup "$authgroup"
 	[ -n "$usergroup" ] && append_args --usergroup "$usergroup"
